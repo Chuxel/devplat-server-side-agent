@@ -8,13 +8,20 @@ import express, {
   type Request,
   type Response,
 } from "express";
+import { existsSync } from "fs";
 import * as path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { z } from "zod";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-dotenv.config({ path: path.join(__dirname, "..", ".env") });
+const dotenvPath = path.join(__dirname, "..", ".env");
+if (!existsSync(dotenvPath)) {
+  console.log("Please create a .env file with you Azure Open AI information.")
+  process.exit(1);
+}
+dotenv.config({ path: dotenvPath });
+
 const server_port = parseInt(process.env.SERVER_PORT || "3000");
 
 const Message = z.object({
