@@ -4,19 +4,18 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleDetection": "force",
+    "moduleResolution": "Bundler",
     "jsx": "react-jsx",
     "allowJs": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "sourceMap": true,
+    "outDir": "./dist",
     "verbatimModuleSyntax": true,
-    "noEmit": true,
 
     /* Linting */
     "skipLibCheck": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "forceConsistentCasingInFileNames": true,
+  },
+  "include": ["./src/**/*"],
 }
